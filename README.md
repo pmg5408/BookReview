@@ -1,33 +1,41 @@
-<<<<<<< HEAD
-# Project 2
-=======
-# BookReview
-## Introduction:
+# Book Review Website
 
-This book review website facilitates users in searching for books, posting, and viewing reviews and ratings. The website integrates a proprietary database and the Google Books API, offering a collection of over 10,000 books and 20,000 reviews. Users can query the website’s own API, receiving a JSON object containing book details and reviews from both the database and Google Books API, enhancing understanding of concepts like Web Services and REST APIs. The site is deployed on a Flask server, leveraging PostgreSQL for data management.
+## Overview
+This project is a book review website developed using Python, JavaScript, Flask, PostgreSQL, SQL, REST APIs, and JSON. It allows users to search for books, post and view reviews and ratings. The site integrates its own proprietary database with the Google Books API to provide a collection of over 10,000 books and 20,000 reviews. Additionally, the website has its own API endpoints that allow users to get the reviews and ratings directly from the database, a feature not provided by the Google Books API.
 
-## Features:
+## Features
+- **Book Search**: Users can search for books by title, author, or ISBN.
+- **Review Posting**: Users can post reviews and ratings for books.
+- **Review Viewing**: Users can view reviews and ratings posted by other users.
+- **API Access**: Users can query the website’s own API to receive a JSON object containing book details and reviews from the database and the Google Books API.
 
-User Registration and Login: Users must register and log in to submit book reviews and ratings. This helps keep track of who submitted each review/rating.
-Book Search: Users can search for books using the search feature. The backend gathers data from Google Books API and the website’s PostgreSQL database.
-Book Details: When a book is searched, a list of related books is shown with details like author, ISBN number, and publication date.
-Reviews and Ratings: Clicking on a specific book shows its detailed information along with user reviews and ratings. Users can add their own ratings and reviews.
-API Access: The website provides an API endpoint for others to request reviews and ratings, compensating for the lack of review and rating support in the Google Books API.
+## Demo
+Here are some GIFs showcasing the functionality of the website:
+
 
 ## Technologies Used
-**Backend**: Flask(Python)<br>
-**Database**: PostgreSQL<br>
-**API Integration**: Google Books API<br>
-**Frontend**: HTML, CSS<br>
+- **Python**
+- **Flask**: Used as the web framework.
+- **PostgreSQL**: Used for relational database management.
+- **SQL**: Used for database queries through SQLAlchemy.
+- **REST APIs**: Used to fetch data from the Google Books API and provide API endpoints for the website.
+- **JSON**: Used for data interchange.
 
-## Usage:
+## Usage
+- **Homepage**: Users are greeted with a registration page.
+- **Registration**: Users can register by providing a username and password.
+- **Login**: Registered users can log in using their credentials.
+- **Search Page**: After logging in, users can search for books by title, author, or ISBN.
+- **Review Page**: Users can view details about a book and post their reviews and ratings.
 
-User Registration and Login:
-Navigate to the registration page to create a new account.
-Log in using your credentials.
-Search for Books:
-Use the search bar to find books. The backend fetches data from Google Books API and the local PostgreSQL database.
-View and Submit Reviews and Ratings:
-Click on a book to view its details, including reviews and ratings.
-Submit your own review and rating using the provided form.
->>>>>>> 31a42ff0293335e3599185ecab2495e6f5baa1ac
+## API Endpoints
+- **Search by Book Name**: /api/bookName/<string:bookName>
+- **Search by Book Author**: /api/ISBN/<string:Author>
+- **Search by Book ISBN**: /api/ISBN/<string:ISBN>
+
+## Example
+To search for books by an author named "John Doe", you can use the following endpoint:
+```
+GET /api/author/John Doe
+```
+The response will be a JSON object containing the book details and reviews.
