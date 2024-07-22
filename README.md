@@ -12,6 +12,17 @@ This project is a book review website developed using Python, JavaScript, Flask,
 ## Demo
 Here are some GIFs showcasing the functionality of the website:
 
+### Registration and Login
+![Registration and Login](registrationAndLogin.gif)
+
+### Search Page and Results
+![Search Pge and Results](searchAndResults.gif)
+
+### Reviews and Ratings
+![Reviews and Ratings](ReviewsAndRatings.gif)
+
+### APIs
+![APIs](APIs.gif)
 
 ## Technologies Used
 - **Python**
@@ -36,6 +47,6 @@ Here are some GIFs showcasing the functionality of the website:
 ## Example
 To search for books by an author named "John Doe", you can use the following endpoint:
 ```
-GET /api/author/John Doe
+GET /api/author/John%20Doe
 ```
 The response will be a JSON object containing the book details and reviews.
