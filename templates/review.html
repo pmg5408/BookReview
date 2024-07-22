@@ -15,14 +15,16 @@ Title: {{title}}
         </ul>
         <p>Year: {{ year }}</p>
         <p>ISBN: {{ isbn }}</p>
-        <p>Description: {{ description }}</p>
+        <p>Description: {{ description|safe }}</p>
         <p>Rating: {{ rating }}</p>
         {% if review %}
         <p>
             Reviews:
             <ul>
                 {% for r in review.keys() %}
-                <li>{{ r }} - {{ review[r] }}</li>
+                    {% for s in review[r] %}
+                    <li>{{ r }} - {{ s }}</li>
+                    {% endfor %}
                 {% endfor %}
             </ul>
         </p>

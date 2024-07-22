@@ -139,7 +139,8 @@ def review(googleID):
         description = data["volumeInfo"]["description"]
     except KeyError:
         description = None
-    rating = None
+    rating = "No user has submitted a rating yet. Hence, rating not available"
+    review = []
     review_users = None
     review_reviews = None
 
@@ -165,7 +166,13 @@ def review(googleID):
                 dummyDict = {}
                 if book_db[6]:
                     dummyDict = book_db[6]
-                dummyDict[session["username"]] = rv
+                    print("This is being printed", dummyDict)
+                if session["username"] in dummyDict.keys():
+                    print("appending")
+                    dummyDict[session["username"]].append(rv)
+                else:
+                    dummyDict[session["username"]] = [rv]
+                    print("Should be a list", dummyDict[session["username"]])
                 db.execute(text("UPDATE books SET review=:review WHERE isbn=:isbn"),
                             {"review":json.dumps(dummyDict), "isbn":isbn})
 
@@ -182,7 +189,7 @@ def review(googleID):
         else:
             print(isbn, title, author, year)
             db.execute(text("INSERT INTO books (isbn, title, author, year, rating, review) VALUES (:isbn, :title, :author, :year, :rating, :review)"),
-            {"isbn":isbn, "title":title, "author":author, "year":year, "rating":[rt, 1], "review":{session["username"]:rv}})
+            {"isbn":isbn, "title":title, "author":author, "year":year, "rating":[rt, 1], "review":json.dumps({session["username"]:[rv]})})
 
         db.commit()
 
@@ -191,7 +198,8 @@ def review(googleID):
                         {"isbn":isbn}).fetchone()
     print(book_db)
     if book_db:
-        rating = book_db[0][0]
+        if book_db[0][0]:
+            rating = book_db[0][0]
         if book_db:
             review = book_db[1]
             print(review)
