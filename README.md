@@ -1,7 +1,7 @@
 # Book Review Website
 
 ## Overview
-This project is a book review website developed using Python, JavaScript, Flask, PostgreSQL, SQL, REST APIs, and JSON. It allows users to search for books, post and view reviews and ratings. The site integrates its own proprietary database with the Google Books API to provide a collection of over 10,000 books and 20,000 reviews. Additionally, the website has its own API endpoints that allow users to get the reviews and ratings directly from the database, a feature not provided by the Google Books API.
+This project is a book review website developed using Python, Flask, PostgreSQL, SQL, REST APIs, and JSON. It allows users to search for books, post and view reviews and ratings. The site integrates its own proprietary database with the Google Books API to provide a collection of over 10,000 books and 20,000 reviews. Additionally, the website has its own API endpoints that allow users to get the reviews and ratings directly from the database, a feature not provided by the Google Books API.
 
 ## Features
 - **Book Search**: Users can search for books by title, author, or ISBN.
